@@ -29,3 +29,19 @@ class CircleShape(pygame.sprite.Sprite):
             if distance <= self.radius + asteroid.radius: 
                 return True 
         return False
+    
+
+
+
+class Shot(CircleShape):
+    SHOT_RADIUS = 5
+
+    def __init__(self, x, y, radius):
+        super.__init__(x, y, radius)
+
+    def draw(self, screen):
+        pygame.draw.circle(screen,self.position, self.SHOT_RADIUS)
+
+
+    def update(self, dt):
+        self.position += self.velocity * dt
